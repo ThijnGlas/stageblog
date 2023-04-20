@@ -1,0 +1,42 @@
+main form {
+    background-color: rgba(26, 26, 26,0.8);
+    width: 1400px;
+    height:800px;
+    display: flex;
+    z-index: 2;
+    position: absolute;
+    top: 200px;
+    left: calc(50% - 700px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+main form h2{
+    color: #FFF;
+    font-size: 'Roboto';
+}
+
+form input {
+    width: 60%;
+    height: 50px;
+    border: none;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+main img{
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+main form img{
+    width: auto;
+}
+main form .submit-knop{
+    width: 300px;
+    background-color: #DDDDDD;
+    border-radius: 5px;
+}

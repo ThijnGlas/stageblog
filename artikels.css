@@ -1,0 +1,83 @@
+.content table {
+    width: 1300px;
+    border-spacing: 0;
+    margin: 20px 0px;
+}
+
+.content table .head-tbl th {
+    padding-bottom: 20px;
+    font-family: 'Koulen';
+    font-weight: 200;
+}
+
+.content table .head-tbl th {
+    font-size: 3rem;
+}
+
+.content table .head-tbl .links-text {
+    text-align: left;
+    
+}
+
+.content table .head-tbl th form .id-zoek{
+    border: 1px solid #000;
+    background-color: #FFF;
+    height: 50px;
+    text-align: center;
+    border-radius: 5px;
+} 
+
+.content table .head-tbl th .toevoegen-btn {
+    background-color: #3D925A;
+}
+
+.content table .head-tbl th .toevoegen-btn:hover {
+    background-color: hsl(140, 41%, 31%);
+
+
+}
+
+.content table tbody .title {
+    font-family: 'Koulen';
+    font-size: 3rem;
+    padding: 10px;
+}
+
+.content table tbody tr {
+    height: 10px;
+
+}
+
+.content table tbody tr td {
+    border: solid 1px #000;
+}
+
+.content table tbody tr .center-nmbers {
+    text-align: center;
+
+}
+
+.content table tbody tr .buttons {
+    width: 150px;
+}
+
+
+
+.content table tbody tr .buttons .aanpassen-btn {
+    background-color: #525252;
+    border-radius: 0;
+}
+
+.content table tbody tr .buttons .verwijderen-btn {
+    background-color: #B91F1F;
+    border-radius: 0;
+}
+
+.content table tbody tr .buttons .aanpassen-btn:hover {
+    background-color: hsl(0, 0%, 22%);
+}
+
+.content table tbody tr .buttons .verwijderen-btn:hover {
+    background-color: hsl(0, 64%, 29%);
+
+}

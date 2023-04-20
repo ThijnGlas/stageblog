@@ -1,0 +1,69 @@
+main {
+    display: flex;
+}
+
+main .side-menu {
+    background-color: #3C6255;
+    width: 300px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main .side-menu ul {
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+
+main .side-menu ul li {
+    color: white;
+    font-family: 'Koulen';
+    font-size: 3rem;
+
+}
+
+main .side-menu button {
+    background-color: #CC2D2D;
+    color: white;
+    height: 100px;
+    border: none;
+    font-size: 3rem;
+    font-family: 'Koulen';
+}
+
+main .side-menu button:hover {
+    transition: 0.3s;
+    background-color: hsl(0, 64%, 39%);
+}
+
+main .side-menu button:active {
+    background-color: hsl(0, 64%, 29%);
+
+}
+
+main .side-menu ul li:hover {
+    color: hsl(0, 0%, 80%);
+    transition: 0.3s;
+}
+
+main .content-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.button {
+    width: 150px;
+    height: 50px;
+    color: #FFF;
+    font-family: 'Koulen';
+    font-weight: 100;
+    font-size: 2rem;
+    border: none;
+}
+

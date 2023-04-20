@@ -1,0 +1,45 @@
+.toevoeg-frm{
+    width: 1400px;
+}
+
+.toevoeg-frm table{
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.toevoeg-frm table tbody tr td{
+    width: 40%;
+    padding: 20px;
+}
+
+.toevoeg-frm table tbody tr td label{
+    font-size: 2rem;
+    font-family: 'Roboto';
+}
+
+.toevoeg-frm table tbody tr td input{
+    width: 100%;
+    font-family: 'Roboto';
+    height: 40px;
+    padding: 10px;
+    font-size: 2rem;
+}
+
+
+.toevoeg-frm table tbody tr .triple{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.toevoeg-frm .button-center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.toevoeg-frm .button-center .post-btn{
+    background-color: #3C6255;
+    margin: 50px;
+}
