@@ -1,5 +1,6 @@
 <?php
-
+require_once("functions.php");
+$connection = dbconnect("stageblog"); 
 ?>
 
 <head>
@@ -11,14 +12,14 @@
         <thead class="head-tbl">
             <th class="links-text">gebruikersnaam</th>
             <th>
-                <form action="?page=berichten" method="post">
+                <form action="?page=users" method="post">
                     <input class="id-zoek" name="zoekenInput" type="text" placeholder="zoeken met id">
                     <input type="hidden" name="zoekenId" value="1">
                 </form>
             </th>
             <th>ID</th>
             <th class="links-text">naam</th>
-            <th><a href="?page=toevoegenusers"><button class="toevoegen-btn button">toevoegen</button></a></th>
+            <th><a href="?page=adduser"><button class="toevoegen-btn button">toevoegen</button></a></th>
         </thead>
         <tbody>
             <?php 
@@ -39,8 +40,8 @@
                 <td class=\"center-nmbers\">" . $row['id'] . "</td>
                 <td class=\"center-nmbers\">" . $row['voornaam'] . " ".$row['achternaam']."</td>
                 <td class=\"buttons\">
-                    <a href=\"?page=toevoegen-users&id=".$row['id']."\"><button class=\"button aanpassen-btn\">aanpassen</button></a>
-                    <a href=\"?page=delete-users&id=".$row['id']."\"><button class=\"button verwijderen-btn\">verwijderen</button></a>
+                    <a href=\"?page=adduser&id=".$row['id']."\"><button class=\"button aanpassen-btn\">aanpassen</button></a>
+                    <a href=\"?page=deleteuser&id=".$row['id']."&username=".$row['username']."\"><button class=\"button verwijderen-btn\">verwijderen</button></a>
                 </td>
                 </tr>";
             }

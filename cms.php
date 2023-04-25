@@ -7,7 +7,10 @@ $connection = dbconnect("stageblog");
 check_login($_COOKIE['user_id'], $_COOKIE['session'], $_COOKIE['ip']);
 
 $message = "";
-if(array_key_exists('page', $_GET)){ $include_page = $_GET['page']; } else { $include_page = "articles"; }
+if(array_key_exists('page', $_GET)){ 
+    $include_page = $_GET['page']; 
+    if(!file_exists($include_page.".php")){ $include_page = "pagenotfound"; } 
+} else { $include_page = "articles"; }
 if(array_key_exists('action', $_GET)){
     if($_GET['action'] == "article_posted"){
         $message = "<div class=\"message succesmessage\">Het artikel is toegevoegd</div>";
@@ -23,6 +26,9 @@ if(array_key_exists('action', $_GET)){
     }
     elseif($_GET['action'] == "error"){
         $message = "<div class=\"message deletemessage\">er is iets fout gegaan</div>";
+    }
+    elseif($_GET['action'] == "user_notfound"){
+        $message = "<div class=\"message deletemessage\">deze gebruiker is niet gevonden</div>";
     }
 }
 
@@ -67,7 +73,7 @@ if(array_key_exists('action', $_GET)){
                 <a href="">
                     <li>projecten</li>
                 </a>
-                <a href="">
+                <a href="?page=users">
                     <li>gebruikers</li>
                 </a>
                 <a href="">

@@ -1,4 +1,7 @@
 <?php
+
+require_once("functions.php");
+$connection = dbconnect("stageblog"); 
 /*
 if (isset($_POST['zoekenId'])) {
     $zoekId = mysqli_query($connection, "SELECT * FROM articles WHERE id = '" . $_POST['zoekenInput'] . "' LIMIT 1") or die(mysqli_error($connection));
