@@ -6,7 +6,25 @@ $connection = dbconnect("stageblog");
 
 check_login($_COOKIE['user_id'], $_COOKIE['session'], $_COOKIE['ip']);
 
+$message = "";
 if(array_key_exists('page', $_GET)){ $include_page = $_GET['page']; } else { $include_page = "articles"; }
+if(array_key_exists('action', $_GET)){
+    if($_GET['action'] == "article_posted"){
+        $message = "<div class=\"message succesmessage\">Het artikel is toegevoegd</div>";
+    }
+    elseif($_GET['action'] == "article_updated"){
+        $message = "<div class=\"message updatemessage\">Het artikel is geupdate</div>";
+    }
+    elseif($_GET['action'] == "article_deleted"){
+        $message = "<div class=\"message deletemessage\">Het artikel is verwijderd</div>";
+    }
+    elseif($_GET['action'] == "article_notfound"){
+        $message = "<div class=\"message deletemessage\">Het artikel is niet gevonden</div>";
+    }
+    elseif($_GET['action'] == "error"){
+        $message = "<div class=\"message deletemessage\">er is iets fout gegaan</div>";
+    }
+}
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -43,7 +61,7 @@ if(array_key_exists('page', $_GET)){ $include_page = $_GET['page']; } else { $in
     <main>
         <div class="side-menu">
             <ul>
-                <a href="">
+                <a href="?page=articles">
                     <li>artikels</li>
                 </a>
                 <a href="">
@@ -65,6 +83,7 @@ if(array_key_exists('page', $_GET)){ $include_page = $_GET['page']; } else { $in
             <button>uitloggen</button>
         </div>
         <div class="content-wrapper">
+            <?= $message ?>
             <?php include($include_page.".php"); ?>
         </div>
     </main>

@@ -52,10 +52,32 @@ main .side-menu ul li:hover {
 
 main .content-wrapper {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
     width: 100%;
     padding: 10px;
 }
+
+main .content-wrapper .message{
+    padding: 10px;
+    border-radius: 5px;
+    color: #FFF;
+    width: 80%;
+    text-align: center;
+}
+
+main .content-wrapper .succesmessage{
+    background-color: #698269;
+}
+main .content-wrapper .updatemessage{
+    background-color: #567189;
+}
+
+main .content-wrapper .deletemessage{
+    background-color: #AA5656;
+}
+
 
 .button {
     width: 150px;
@@ -67,3 +89,7 @@ main .content-wrapper {
     border: none;
 }
 
+.terug{
+    color: #000;
+    text-align: start;
+}

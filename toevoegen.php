@@ -1,15 +1,18 @@
 <?php
+require_once("functions.php");
+$connection = dbconnect("stageblog"); 
 
-$succesmessage = "";
+// check_login($_COOKIE['user_id'], $_COOKIE['session'], $_COOKIE['ip']);
+
+
 if (isset($_POST['toevoegenForm'])) {
-
   if (array_key_exists('editId', $_POST) && trim($_POST['editId']) == "") {
     mysqli_query(
       $connection,
       "INSERT INTO articles 
     (user_id, article, publisheddate, articlestatus_id, title,	category_id,	slug,	heroimg,	projecturl,	tijdsduur, concept)
     values
-    ('" . mysqli_real_escape_string($connection, $_COOKIE['user_id']) . "', 
+    ('" .mysqli_real_escape_string($connection, $_COOKIE['user_id']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['articleInput']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['datumInput']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['statusInput']) . "', 
@@ -18,20 +21,34 @@ if (isset($_POST['toevoegenForm'])) {
     '" . mysqli_real_escape_string($connection, $_POST['urlInput']) . "',
     '" . mysqli_real_escape_string($connection, $_POST['imgInput']) . "',
     '" . mysqli_real_escape_string($connection, $_POST['projecturlInput']) . "',
-    '" . mysqli_real_escape_string($connection, $_POST['tijdsduurInput']) . "',
-    '" . mysqli_real_escape_string($connection, $_POST['conceptInput']) . "',
+    '" . mysqli_real_escape_string($connection, $_POST['stageurenInput']) . "',
+    '" . mysqli_real_escape_string($connection, $_POST['conceptInput']) . "'
     )"
     ) or die(mysqli_error($connection));
-
-    header("location: cms.php?page=articles&success=article_posted");
-  } else {
-
-
-
+    header("location: cms.php?page=articles&action=article_posted");
+  } 
+  else {
+    mysqli_query(
+      $connection,
+      "UPDATE articles SET 
+      update_user_id = '".mysqli_real_escape_string($connection, $_COOKIE['user_id'])."', 
+      article = '".mysqli_real_escape_string($connection, $_POST['articleInput']) ."',
+      modifacationdate = '".mysqli_real_escape_string($connection, $_POST['datumInput']) ."',
+      articlestatus_id = '".mysqli_real_escape_string($connection, $_POST['statusInput']) ."',
+      title = '".mysqli_real_escape_string($connection, $_POST['titleInput']) ."',
+      category_id = '".mysqli_real_escape_string($connection, $_POST['categoryInput']) ."',
+      slug = '".mysqli_real_escape_string($connection, $_POST['urlInput']) ."',
+      heroimg = '".mysqli_real_escape_string($connection, $_POST['imgInput']) ."',
+      projecturl = '".mysqli_real_escape_string($connection, $_POST['projecturlInput']) ."',
+      tijdsduur = '".mysqli_real_escape_string($connection, $_POST['stageurenInput']) ."', 
+      concept = '".mysqli_real_escape_string($connection, $_POST['conceptInput']) ."' 
+      WHERE id = '".$_POST['editId']."' LIMIT 1
+      "
+    ) or die(mysqli_error($connection));
+    header("location: cms.php?page=articles&action=article_updated");
   }
-
 }
-;
+
 
 if (array_key_exists('id', $_GET)) {
   $editId = $_GET['id'];
@@ -40,7 +57,7 @@ if (array_key_exists('id', $_GET)) {
   while ($article = mysqli_fetch_array($get_article)) {
     $titleInput = $article['title'];
     $urlInput = $article['slug'];
-    $article_input = $article['article'];
+    $articleInput = $article['article'];
     $categoryInput = $article['category_id'];
     $datumInput = $article['publisheddate'];
     $stageurenInput = $article['tijdsduur'];
@@ -48,11 +65,13 @@ if (array_key_exists('id', $_GET)) {
     $projecturlInput = $article['projecturl'];
     $conceptInput = $article['concept'];
     $imgInput = $article['heroimg'];
+    
   }
 } else {
+    $editId = "";
     $titleInput = "";
     $urlInput = "";
-    $article_input = "";
+    $articleInput = "";
     $categoryInput = "";
     $datumInput = "";
     $stageurenInput = "";
@@ -69,7 +88,8 @@ if (array_key_exists('id', $_GET)) {
 <head>
   <link rel="stylesheet" href="toevoegen.css">
 </head>
-<form class="toevoeg-frm" action="cms.php" name="toevoegenForm" method="post">
+<a  href="?page=articles"><p class="terug"><- terug</p></a>
+<form class="toevoeg-frm" action="cms.php?page=toevoegen" name="toevoegenForm" method="post">
   <input type="hidden" name="toevoegenForm" value="1">
   <input type="hidden" name="editId" value="<?= $editId; ?>">
   <table>
@@ -128,7 +148,8 @@ if (array_key_exists('id', $_GET)) {
       </tr>
     </tbody>
   </table>
-  <textarea name="articleInput" value="<?= $articleInput; ?>">
+  <textarea name="articleInput">
+  <?= $articleInput; ?>
     </textarea>
   <div class="button-center">
     <input class="button post-btn" value="post" type="submit">
