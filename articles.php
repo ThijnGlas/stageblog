@@ -1,18 +1,11 @@
 <?php
 
+//hier haal ik een functie op die ik gebruik om een database connectie te maken
 require_once("functions.php");
-$connection = dbconnect("stageblog"); 
-/*
-if (isset($_POST['zoekenId'])) {
-    $zoekId = mysqli_query($connection, "SELECT * FROM articles WHERE id = '" . $_POST['zoekenInput'] . "' LIMIT 1") or die(mysqli_error($connection));
-    if (mysqli_num_rows($zoekId) == 1) {
-        header("location: cms.php?page=toevoegen&id=" . $_POST['zoekenInput'] . "");
-    } else {
-        header("location: cms.php?page=articles&action=article_notfound");
 
-    }
-}
-*/
+ //hier zet ik de dbconnect functie in een $connention variable dit doe ik zodat ik hem makkelijk kan oproepen
+$connection = dbconnect("stageblog"); 
+
 ?>
 
 <head>
@@ -31,19 +24,22 @@ if (isset($_POST['zoekenId'])) {
             </th>
             <th>ID</th>
             <th>Keer bekeken</th>
-            <th><a href="?page=toevoegen"><button class="toevoegen-btn button">toevoegen</button></a></th>
+            <th><a href="?page=addarticles"><button class="toevoegen-btn button">toevoegen</button></a></th>
         </thead>
         <tbody>
             <?php 
+            //in deze if statement check ik of er een post en of de post niet leeg is
             if(isset($_POST['zoekenInput']) && trim($_POST['zoekenInput']) != ""){ 
+                //in deze query kijk ik of er artikels zijn waarvan de titel of het id in de database staat als beide niet waar zijn krijg je een message met daarin artikel niet gevonden.
                 $articlesFromDatabase = mysqli_query($connection, "SELECT * FROM articles WHERE title LIKE '%".$_POST['zoekenInput']."%' OR id = '".$_POST['zoekenInput']."'") or die (mysqli_error($connection)); 
                 if (mysqli_num_rows($articlesFromDatabase) == 0) {
                     header("location: cms.php?page=articles&action=article_notfound");
                 }
             } else {
+                //als er niks is ingetypt krijg je alle artikels te zien
                 $articlesFromDatabase = mysqli_query($connection, "SELECT * FROM articles");
             }
-
+            //met deze while krijg ik alle artikels uit de database in een tabel. Ook staan er twee buttons in per row deze button geven een page en een id mee, in de files addarticles en deletearticles zie je wat er mee gedaan word
             while ($row = mysqli_fetch_array($articlesFromDatabase)) {
                 echo "
                 <tr>
@@ -52,8 +48,8 @@ if (isset($_POST['zoekenId'])) {
                 <td class=\"center-nmbers\">" . $row['id'] . "</td>
                 <td class=\"center-nmbers\">4321</td>
                 <td class=\"buttons\">
-                    <a href=\"?page=toevoegen&id=".$row['id']."\"><button class=\"button aanpassen-btn\">aanpassen</button></a>
-                    <a href=\"?page=delete&id=".$row['id']."\"><button class=\"button verwijderen-btn\">verwijderen</button></a>
+                    <a href=\"?page=addarticles&id=".$row['id']."\"><button class=\"button aanpassen-btn\">aanpassen</button></a>
+                    <a href=\"?page=deletearticles&id=".$row['id']."\"><button class=\"button verwijderen-btn\">verwijderen</button></a>
                 </td>
                 </tr>";
             }

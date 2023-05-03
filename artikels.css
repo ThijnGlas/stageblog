@@ -23,6 +23,8 @@
     border: 1px solid #000;
     background-color: #FFF;
     height: 50px;
+    width: 70%;
+    padding: 20px;
     text-align: center;
     border-radius: 5px;
 } 
