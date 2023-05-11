@@ -1,0 +1,111 @@
+main .eerste {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background-color: #3C6255;
+}
+
+main div img{
+    width: 100%;
+    height: auto;
+}
+
+main .leesverder h3{
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+
+main .leesverder{
+    display: flex;
+    justify-content: center;
+    right: calc(50% - 100px);
+    position: absolute;
+    z-index: 5;
+    flex-direction: column;
+    margin-top: 80vh;
+    color: #FFF;
+}
+ 
+main div{
+    display: flex;
+    align-items: center;
+
+}
+
+
+
+main .eerste img{
+    z-index: 1;
+    width: 20%;
+    height: auto;
+    margin-right:calc(50% - 500px);
+
+}
+main .tweede img{
+    z-index: 2;
+}
+main .derde img{
+    z-index: 3;
+}
+main .vierde img{
+    z-index: 4;
+}
+main .vijfde img{
+    z-index: 5;
+
+}
+
+main .eerste div{
+    right: calc(50% - 700px);
+}
+main .tweede div{
+    left: calc(50% - 700px);
+}
+main .derde div{
+    right: calc(50% - 700px);
+
+}
+main .vierde div{
+    left: calc(50% - 700px);
+
+}
+main .vijfde div{
+    right: calc(50% - 700px);
+
+}
+main .zesde div{
+    left: calc(50% - 700px);
+
+}
+
+
+main div div{
+    z-index: 5;
+    position: absolute;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 5px;
+    width: 600px;
+}
+
+
+
+main .eerste{
+    height: calc(100vh - 116px);
+}
+
+main div div h2{
+    font-family: 'Koulen';
+    font-weight: 200;
+}
+
+main div div p{
+    font-family: 'Roboto';
+}

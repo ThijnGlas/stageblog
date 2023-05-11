@@ -1,0 +1,130 @@
+header{
+    width: var(--width);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 30px;
+}
+
+header h1{
+    font-family: 'Koulen';
+    font-size: 6rem;
+    font-weight: 100;
+}
+
+header div article{
+    background-color: var(--green);
+    border-radius: 5px;
+    height: 700px;
+    display: flex;
+}
+
+header div article img{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+header div article div{
+    margin: 10px;
+    color: var(--color-white);
+    font-family: 'Roboto';
+    font-size: 1.8rem;
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header div article div .uitgelicht__title{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+header div article div .uitgelicht__title h3{
+    font-family: 'Koulen';
+    font-weight: 200;
+    font-size: 3rem;
+}
+
+header div article div .uitgelicht__title .tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    font-size: 1.6rem;
+    width: 125px;
+    height: 40px;
+    background: #6d8b74;
+    border-radius: 0.5rem;
+}
+
+header div article div .uitgelicht__title .tag h4{
+    font-weight: 100;
+}
+
+header div article div .uitgelicht__tekst{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+header div article div .uitgelicht__tekst p{
+    font-size: 2.1rem;
+}
+
+header div article div .uitgelicht__tekst div{
+    display: flex;
+    justify-content: center;
+}
+
+header div article div .button__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: var(--width);
+    margin: auto;
+    margin-top: 20px;
+}
+main .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 40px;
+    grid-column-gap: 40px;
+    margin-bottom: 120px;
+    justify-content: center;
+}
+
+main .berichten{
+ margin-top: 50px;
+ text-align: left;
+}
+
+main div .berichten h2{
+    font-family: 'Koulen';
+    font-size: 6rem;
+    font-weight: 100;
+}
+
+main .pagina{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+main .pagina a{
+    color: black;
+    font-size: 2.1rem;
+}
+
+main .pagina p{
+    font-size: 2.1rem;
+}
+

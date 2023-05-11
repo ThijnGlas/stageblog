@@ -1,0 +1,79 @@
+:root{
+    --text-width: 900px;
+}
+
+main img{
+    width: 100%;
+    height: auto;
+}
+
+main .content__wrapper{
+    width: var(--width);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+main .content__wrapper .content__wrapper .content{
+    display: flex;
+    width: 900px;
+}
+
+main .content__wrapper .content h1{
+    font-family: 'Koulen';
+    font-size: 5rem;
+    font-weight: 200;
+}
+
+
+main .content__wrapper .content h2{
+    font-family: 'Koulen';
+    font-size: 3rem;
+    font-weight: 200;
+}
+
+main .content__wrapper .content p{
+    font-family: 'Roboto';
+    font-size: 2.1rem;
+    margin-bottom: 20px;
+}
+
+
+
+main .content__wrapper div .content div{
+    font-family: 'Koulen';
+    font-weight: 200;
+}
+
+
+
+main div .sidemenu{
+    margin-top: 30px;
+    height: 600;
+}
+
+main div .sidemenu .green{
+    color: var(--color-white);
+    padding: 20px;
+    background-color: var(--green);
+}
+
+main div .sidemenu .green h4{
+    font-family: 'Koulen';
+    font-weight: 200;
+
+}
+
+main div .sidemenu .green p{
+    margin-bottom: 5px;
+}
+
+main div .sidemenu .grey{
+    background-color: var(--grey);
+    padding: 20px;
+}
+
+main div .sidemenu .grey h4{
+    margin-bottom: 10px;
+}
